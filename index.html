@@ -34,7 +34,19 @@
             background: linear-gradient(135deg, #1A1A3A 0%, #2D2D4D 100%);
         }
         
-        /* Keyframe for professional slide-up-fade-in */
+        /* Keyframe for blur-in effect */
+        @keyframes blurIn {
+            from { opacity: 0; filter: blur(5px); transform: translateY(10px); }
+            to { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
+        
+        /* Apply blur-in animation to the hero content */
+        .animate-blur-in {
+            animation: blurIn 1.5s ease-out forwards; /* Longer duration for smooth effect */
+            opacity: 0; 
+        }
+
+        /* Keyframe for standard slide-up-fade-in (used for later elements) */
         @keyframes slideUpFadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -128,9 +140,9 @@
         .video-blur-overlay {
             position: absolute;
             inset: 0;
-            backdrop-filter: blur(3px); /* Adjust blur amount as needed */
-            -webkit-backdrop-filter: blur(3px); /* For Safari support */
-            background: rgba(0,0,0,0.2); /* Slight darkening for text contrast */
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            background: rgba(0,0,0,0.2);
             z-index: -1;
         }
 
@@ -212,14 +224,14 @@
         
         <div class="video-blur-overlay"></div>
         
-        <div class="container mx-auto px-6 max-w-5xl z-10 pt-20">
-            <h1 class="text-6xl md:text-8xl font-black text-white leading-snug mb-6 animate-on-load">
+        <div class="container mx-auto px-6 max-w-5xl z-10 pt-20 animate-blur-in">
+            <h1 class="text-6xl md:text-8xl font-black text-white leading-snug mb-6">
                 Crafting <span class="accent-yellow">Visuals That Convert</span> <br> for the Digital Frontier.
             </h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl animate-on-load delay-1">
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl">
                 A full-stack marketing powerhouse specializing in **Brand Impact, SEO, and Dynamic Web Experiences**. Focused on measurable results.
             </p>
-            <a href="#portfolio" class="inline-block btn-digital-hover font-bold py-3 px-8 rounded-xl shadow-xl animate-on-load delay-2 text-lg uppercase tracking-wider">
+            <a href="#portfolio" class="inline-block btn-digital-hover font-bold py-3 px-8 rounded-xl shadow-xl text-lg uppercase tracking-wider">
                 Explore My Digital Craft →
             </a>
         </div>
@@ -381,4 +393,3 @@
 
 </body>
 </html>
-
