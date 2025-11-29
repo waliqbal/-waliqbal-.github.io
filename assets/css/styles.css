@@ -151,8 +151,8 @@ body {
     top: 70%; 
     left: 50%;
     transform: translate(-50%, -50%); 
-    font-size: 14em; /* Impact font size */
-    font-weight: 1800; /* Extra Bold */
+    font-size: 11em; /* Impact font size */
+    font-weight: 1500; /* Extra Bold */
     letter-spacing: 3px; 
     color: var(--color-white); 
     /* High-contrast, clean text shadow */
