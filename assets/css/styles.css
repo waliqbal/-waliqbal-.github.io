@@ -144,7 +144,6 @@ body {
     display: block;
     border-radius: 12px; /* Slightly larger radius */
     /* Deep, dark shadow to blend into the background */
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.5); 
 }
 
 .hero-text-overlay {
