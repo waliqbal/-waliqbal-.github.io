@@ -1,346 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waleed Iqbal - MIS & E-commerce Marketing Specialist</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* BASE STYLES */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A0A2E; /* Deep Blue Background */
-            color: #F0F0F0;
-        }
-        h1, h2, h3 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-        }
-        /* Color Variables */
-        .accent-yellow { color: #FFD100; }
-        .bg-accent-yellow { background-color: #FFD100; }
-
-        /* UI/VISUAL STYLING */
-        .bg-gradient-digital {
-            background: linear-gradient(145deg, #0A0A2E 0%, #1A1A3A 100%);
-        }
-        .bg-gradient-card {
-            background: linear-gradient(135deg, #1A1A3A 0%, #2D2D4D 100%);
-        }
-        .pattern-bg {
-            background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M100 0L0 100h100V0zM0 0l100 100V0H0z" fill="%232D2D4D" opacity="0.1"/%3E%3C/svg%3E');
-            background-size: 150px;
-            background-blend-mode: overlay;
-            background-color: #0A0A2E;
-        }
-        .logo-container { width: 100px; height: auto; }
-        
-        /* GENERAL SECTION STYLING */
-        section {
-            border-radius: 1.5rem;
-            margin-bottom: 2rem;
-            margin-left: 1rem;
-            margin-right: 1rem;
-            background-color: #1A1A3A;
-        }
-        footer {
-            border-top-left-radius: 1.5rem;
-            border-top-right-radius: 1.5rem;
-            background: linear-gradient(to top, #0A0A2E 0%, #1A1A3A 100%);
-        }
-        
-        /* HERO SECTION SPECIFIC STYLING */
-        #home {
-            position: relative;
-            isolation: isolate;
-            border-bottom-left-radius: 2.5rem;
-            border-bottom-right-radius: 2.5rem;
-            overflow: hidden; 
-        }
-        .video-container {
-            position: absolute; inset: 0; overflow: hidden; z-index: -2;
-        }
-        .video-container video {
-            min-width: 100%; min-height: 100%; width: auto; height: auto;
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        }
-        .video-blur-overlay {
-            position: absolute; inset: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
-            background: rgba(0,0,0,0.2); z-index: -1;
-        }
-        .hero-content-wrapper {
-            position: relative; z-index: 20; text-align: center;
-        }
-
-        /* HERO IMAGE OVERLAY STYLES */
-        #hero-overlay-image {
-            position: absolute;
-            bottom: -10%; /* Lifts the image to visually anchor the section */
-            left: 50%;
-            transform: translateX(-50%); /* Centers the image */
-            width: 100%; 
-            max-width: 1200px;
-            height: auto;
-            z-index: 10; /* Lower than text, but higher than video/blur */
-            pointer-events: none;
-        }
-
-        /* ANIMATIONS */
-        @keyframes blurIn {
-            from { opacity: 0; filter: blur(5px); transform: translateY(10px); }
-            to { opacity: 1; filter: blur(0); transform: translateY(0); }
-        }
-        .animate-blur-in { animation: blurIn 1.5s ease-out forwards; opacity: 0; }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(100%); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-slide-up {
-            animation: slideUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            animation-delay: 0.5s;
-            opacity: 0;
-        }
-        
-        /* SCROLL REVEAL (for subsequent sections) */
-        .scroll-reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* Component Details (Card/Button Hovers) */
-        .btn-digital-hover { transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3); background: #FFD100; color: #0A0A2E; }
-        .btn-digital-hover:hover { background: linear-gradient(45deg, #FFD100 0%, #FF6F00 100%); transform: scale(1.02); box-shadow: 0 8px 20px rgba(255, 209, 0, 0.5); }
-        .card-digital { border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.4); transition: all 0.3s ease; border: 1px solid transparent; }
-        .card-digital:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(255, 209, 0, 0.4); border-color: #FFD100; }
-    </style>
-    <script>
-        // Header Scroll & Scroll Reveal Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const header = document.getElementById('main-header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('bg-[#0A0A2E]', 'bg-opacity-95', 'shadow-xl');
-                } else {
-                    header.classList.remove('bg-[#0A0A2E]', 'bg-opacity-95', 'shadow-xl');
-                }
-            });
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); 
-                    }
-                });
-            }, { threshold: 0.1 }); 
-
-            document.querySelectorAll('.scroll-reveal').forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
+    <title>WUI - Visuals That Convert</title>
+    <link rel="stylesheet" href="assets/css/styles.css"> 
 </head>
-<body class="pattern-bg">
-
-    <header id="main-header" class="fixed w-full z-50 transition-all duration-300 py-4 backdrop-blur-sm">
-        <nav class="container mx-auto px-6 flex justify-between items-center">
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <img src="assets/images/Copy of WALEED.png" alt="WUI Logo" class="logo">
             
-            <a href="#home" class="logo-container">
-                <img src="assets/images/WALEED.png" alt="Waleed Logo" class="w-full h-auto">
-            </a>
-            
-            <div class="space-x-8 hidden sm:block">
-                <a href="#about" class="text-gray-300 hover:text-accent-yellow transition duration-300 font-medium">About Me</a>
-                <a href="#portfolio" class="text-gray-300 hover:text-accent-yellow transition duration-300 font-medium">The Craft</a>
-                <a href="#contact" class="text-gray-300 hover:text-accent-yellow transition duration-300 font-medium">Basecamp</a>
+            <div class="nav-links">
+                <a href="#home">HOME</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
             </div>
+            
+            <button class="search-button" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
         </nav>
     </header>
 
-    <section id="home" class="h-screen relative flex items-center justify-center text-left">
-        
-        <div class="video-container">
-            <video autoplay muted loop playsinline poster="assets/images/video_poster.jpg">
-                <source src="assets/videos/Waleed Iqbal (1600 x 1080 px) (2).mp4" type="video/mp4">
-                <source src="assets/videos/Waleed Iqbal (1600 x 1080 px) (4).mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        
-        <div class="video-blur-overlay"></div>
-        
-        <div class="container mx-auto px-6 max-w-5xl pt-20 hero-content-wrapper animate-blur-in">
-            <h1 class="text-6xl md:text-8xl font-black text-white leading-snug mb-6">
-                <span class="accent-yellow">E-commerce Infrastructure</span> that Drives 140% Organic Growth.
-            </h1>
-            <a href="#portfolio" class="inline-block btn-digital-hover font-bold py-3 px-8 rounded-xl shadow-xl text-lg uppercase tracking-wider">
-                Explore My Digital Craft →
-            </a>
-        </div>
-
-        <div id="hero-overlay-image" class="animate-slide-up">
-            <img src="assets/images/Untitled design (50).png" alt="Project screenshot overlay" class="w-full h-auto object-cover">
-        </div>
-    </section>
-
-    <section id="metrics" class="py-16 bg-gradient-digital border-b-4 border-accent-yellow rounded-2xl mx-auto container">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-black text-center mb-10 accent-yellow uppercase tracking-wider">Proven Impact</h2>
-            <div class="grid md:grid-cols-3 gap-10 text-center">
-                <div class="animate-on-load">
-                    [cite_start]<p class="text-6xl font-black text-white mb-2">+140% [cite: 112]</p>
-                    <p class="text-lg text-gray-200 font-semibold uppercase">Organic Traffic Growth</p>
-                </div>
-                <div class="animate-on-load delay-1">
-                    [cite_start]<p class="text-6xl font-black text-white mb-2">+79% [cite: 111]</p>
-                    <p class="text-lg text-gray-200 font-semibold uppercase">Page Dwell Time</p>
-                </div>
-                <div class="animate-on-load delay-2">
-                    [cite_start]<p class="text-6xl font-black text-white mb-2">70% [cite: 113]</p>
-                    <p class="text-lg text-gray-200 font-semibold uppercase">Reduction in Upload Time (via AI)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-gradient-digital rounded-2xl mx-auto container">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-black text-center mb-16 text-white uppercase tracking-wider animate-on-load">My Digital Arsenal</h2>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="p-6 bg-gradient-card rounded-xl border-t-4 border-accent-yellow shadow-lg text-center transform hover:scale-[1.03] transition duration-300 card-digital">
-                    <div class="text-4xl accent-yellow mb-3">💡</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Brand Strategy</h3>
-                    [cite_start]<p class="text-sm text-gray-300">Defining identities that resonate and dominate (EvilBullKnives)[cite: 126, 127, 89, 90].</p>
-                </div>
-                <div class="p-6 bg-gradient-card rounded-xl border-t-4 border-accent-yellow shadow-lg text-center transform hover:scale-[1.03] transition duration-300 card-digital">
-                    <div class="text-4xl accent-yellow mb-3">🌐</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Web Experience Design</h3>
-                    [cite_start]<p class="text-sm text-gray-300">Built responsive Shopify site from scratch, generating $60K+ revenue[cite: 115].</p>
-                </div>
-                <div class="p-6 bg-gradient-card rounded-xl border-t-4 border-accent-yellow shadow-lg text-center transform hover:scale-[1.03] transition duration-300 card-digital">
-                    <div class="text-4xl accent-yellow mb-3">📈</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Advanced SEO</h3>
-                    [cite_start]<p class="text-sm text-gray-300">Technical Audits, Keyword Research (Ahrefs, SEMrush), and GTM deployment[cite: 102, 112, 128].</p>
-                </div>
-                <div class="p-6 bg-gradient-card rounded-xl border-t-4 border-accent-yellow shadow-lg text-center transform hover:scale-[1.03] transition duration-300 card-digital">
-                    <div class="text-4xl accent-yellow mb-3">🛠️</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Conversion Funnel Analytics</h3>
-                    [cite_start]<p class="text-sm text-gray-300">Raising B2B CR from 0.49% to 0.67% using A/B Tests[cite: 114, 167].</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="py-24 bg-gradient-digital border-y border-gray-800 rounded-2xl mx-auto container scroll-reveal">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-black text-center mb-20 text-white">Case Studies: The Impact Portfolio</h2>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                
-                <a href="#" class="card-digital block bg-gradient-card rounded-xl shadow-2xl transition duration-300 hover:border-accent-yellow border border-[#1A1A3A] overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400/2D2D4D/FFD100?text=Zack+Wholesale+Website+Preview" alt="Zack Wholesale Project" class="w-full h-48 object-cover border-b border-[#2D2D4D]">
-                    <div class="p-6">
-                        <span class="text-xs font-semibold uppercase accent-yellow mb-1 block">E-commerce Infrastructure & SEO</span>
-                        <h3 class="text-2xl font-black text-white mb-2">Zack Wholesale B2B Conversion</h3>
-                        [cite_start]<p class="text-sm text-gray-300 mb-3">Optimized 600+ SKUs via data scraping and cleaning to boost page dwell time by 79%[cite: 111, 166].</p>
-                        <span class="text-sm font-bold accent-yellow">View Case Study →</span>
-                    </div>
-                </a>
-
-                <a href="#" class="card-digital block bg-gradient-card rounded-xl shadow-2xl transition duration-300 hover:border-accent-yellow border border-[#1A1A3A] overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400/2D2D4D/FFD100?text=EvilBullKnives+Website+Preview" alt="EvilBullKnives Project" class="w-full h-48 object-cover border-b border-[#2D2D4D]">
-                    <div class="p-6">
-                        <span class="text-xs font-semibold uppercase accent-yellow mb-1 block">Brand Launch & Keyword Strategy</span>
-                        <h3 class="text-2xl font-black text-white mb-2">EvilBullKnives Launch & Revenue</h3>
-                        [cite_start]<p class="text-sm text-gray-300 mb-3">Designed, branded, and launched site, generating over $10,000 in revenue and 10,000+ sessions[cite: 126, 157].</p>
-                        <span class="text-sm font-bold accent-yellow">View Case Study →</span>
-                    </div>
-                </a>
-
-                <a href="#" class="card-digital block bg-gradient-card rounded-xl shadow-2xl transition duration-300 hover:border-accent-yellow border border-[#1A1A3A] overflow-hidden">
-                    <img src="https://via.placeholder.com/600x400/2D2D4D/FFD100?text=Charity+Water+Campaign+Preview" alt="Charity Water Campaign" class="w-full h-48 object-cover border-b border-[#2D2D4D]">
-                    <div class="p-6">
-                        <span class="text-xs font-semibold uppercase accent-yellow mb-1 block">Social Strategy & GenZ Marketing</span>
-                        <h3 class="text-2xl font-black text-white mb-2">Charity Water Project Campaign</h3>
-                        [cite_start]<p class="text-sm text-gray-300 mb-3">Designed a marketing strategy for engaging GenZ audiences via paid/organic content and influencer sourcing[cite: 120, 122, 123].</p>
-                        <span class="text-sm font-bold accent-yellow">View Case Study →</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="text-center mt-16">
-                <a href="#" class="inline-block btn-digital-hover font-bold py-3 px-8 rounded-xl shadow-xl text-lg uppercase tracking-wider">
-                    View All Projects
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 bg-gradient-digital rounded-2xl mx-auto container scroll-reveal">
-        <div class="container mx-auto px-6 md:flex items-center max-w-6xl">
-            <div class="md:w-1/2 md:pr-16">
-                <h2 class="text-5xl font-black mb-6 text-white">The Digital Architect Behind the Vision</h2>
-                <p class="mb-6 text-lg text-gray-300 leading-relaxed">
-                    [cite_start]I am an aspiring **IT professional** with over five years of **e-commerce experience**[cite: 149, 165]. My approach is to engineer conversion-focused digital strategies that not only look exceptional but deliver measurable impact. [cite_start]I blend my **Management Information Systems** education and analytical mindset with hands-on technical skills in **SQL, Tableau, and Advanced Excel**[cite: 96, 102, 150, 178].
-                </p>
-                <p class="text-lg text-gray-300 leading-relaxed">
-                    [cite_start]Recruiters: I hold certifications as a **Certified Digital Ads Specialist** and **E-Commerce Digital Marketing Specialist**[cite: 99, 142]. I am currently seeking roles where innovation meets ambitious digital performance goals. Let's discuss building your team's next breakthrough.
-                </p>
-                <a href="#" class="mt-8 inline-block accent-yellow hover:text-white font-bold border-b-2 border-accent-yellow transition duration-300 text-lg uppercase tracking-wider">
-                    Download My Professional Blueprint (Resume)
-                </a>
-            </div>
-            <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center items-center">
-                <div class="relative w-80 h-auto bg-gradient-card p-2 rounded-xl shadow-2xl border-2 border-accent-yellow">
-                    <img src="https://via.placeholder.com/400x500/3A3A5A/FFD100?text=Professional+Portrait" alt="Your Professional Portrait" class="w-full h-full object-cover rounded-lg">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 bg-gradient-digital rounded-2xl mx-auto container scroll-reveal">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="text-5xl font-black text-center mb-6 text-white">Ignite Your Next Project.</h2>
-            <p class="text-xl mb-12 text-gray-300 text-center">
-                Ready to transform your digital presence? Send a message directly or download my blueprint.
-            </p>
+    <main class="hero-section">
+        <div class="hero-content">
             
-            <form class="space-y-6 bg-gradient-card p-8 rounded-xl shadow-2xl border border-[#2D2D4D]">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                    <input type="text" id="name" name="name" class="form-input" placeholder="Your Full Name" required>
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="your.email@company.com" required>
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                    <textarea id="message" name="message" rows="4" class="form-input" placeholder="Tell me about the opportunity..." required></textarea>
-                </div>
-                <div class="pt-4">
-                    <button type="submit" class="w-full btn-digital-hover font-bold py-3 px-8 rounded-xl shadow-xl text-lg uppercase tracking-wider">
-                        Send Message
-                    </button>
-                </div>
-            </form>
+            <div class="device-visuals">
+                <div class="desktop-mockup"></div>
+                <div class="mobile-mockup"></div>
+            </div>
 
-            <div class="text-center mt-8">
-                <p class="text-xl font-bold">
-                    <a href="mailto:youremail@example.com" class="accent-yellow hover:text-white transition duration-300">youremail@example.com</a>
-                </p>
+            <h1>Visuals That Convert</h1>
+
+            <div class="cta-buttons">
+                <a href="#explore" class="btn btn-primary">Explore</a>
+                <a href="#mind" class="btn btn-secondary">What Goes Through My Head</a>
             </div>
         </div>
-    </section>
-
-    <footer class="bg-gradient-to-t from-[#0A0A2E] to-[#1A1A3A] py-8 text-center text-gray-500 text-sm rounded-t-2xl">
-        <p>Engineered for Impact. &copy; 2025 Your Name. All rights reserved.</p>
-    </footer>
-
+    </main>
 </body>
 </html>
